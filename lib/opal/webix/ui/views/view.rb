@@ -6,6 +6,8 @@ module Webix
   # @see http://docs.webix.com/api__refs__ui.view.html
   class View
     include BaseView
+    extend UI
+
     # events
     alias_native :on_after_scroll, :onAfterScroll
     alias_native :on_key_press, :onKeyPress
