@@ -7,6 +7,7 @@ module Webix
           webix.ui(#{options.to_h.to_n})
         });
       }
+      self
     end
   end
 end
