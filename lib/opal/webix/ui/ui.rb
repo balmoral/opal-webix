@@ -4,7 +4,7 @@ module Webix
     def new(options)
       %x{
         webix.ready(function(){
-          webix.ui(#{options})
+          webix.ui(#{options.to_h.to_n})
         });
       }
     end
