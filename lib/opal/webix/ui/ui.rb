@@ -3,9 +3,9 @@ module Webix
   module UI
     module_function
 
-    def create(options)
+    def new(options)
       h = options.to_h
-      console.log "#{self.class.name}##{__method__}[#{__LINE__}] : calling webix.ui(#{h})"
+      puts "#{self.class.name}##{__method__}[#{__LINE__}] : calling webix.ui(#{h})"
       %x{
         webix.ready(function(){
           webix.ui(#{h.to_n})
@@ -13,5 +13,6 @@ module Webix
       }
       self
     end
+
   end
 end
