@@ -19,9 +19,7 @@ module Webix
 
   class UnsupportedFeature < RuntimeError; end
 
-  class Webix;    end
-  class BaseView; end
-  class View;     end
+  class UI;       end
   class Button;   end
 
 end
