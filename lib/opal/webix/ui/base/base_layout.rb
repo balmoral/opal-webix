@@ -6,8 +6,7 @@ module Webix
   # Not intended for direct use, instead
   # use Layout class or descendants.
   # @see http://docs.webix.com/api__refs__ui.baselayout.html
-  class BaseLayout
-    include BaseView
+  class BaseLayout < BaseView
     # methods
     alias_native :add_view, :addView
     alias_native :reconstruct
