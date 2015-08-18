@@ -3,7 +3,7 @@ module Webix
   module UI
     def new(options)
       h = options.to_h
-      puts "#{self.class.name}##{__method__}[#{__LINE__}] : calling webix.ui(#{h})"
+      console.log "#{self.class.name}##{__method__}[#{__LINE__}] : calling webix.ui(#{h})"
       %x{
         webix.ready(function(){
           webix.ui(#{h.to_n})
