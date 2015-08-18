@@ -2,6 +2,8 @@ module Webix
 
   class UnsupportedFeature < RuntimeError; end
 
+  class View; end
+
   module NativePatches
     extend Native::Helpers
 
