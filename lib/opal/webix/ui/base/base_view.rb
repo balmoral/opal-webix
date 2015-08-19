@@ -10,7 +10,7 @@ module Webix
   # though View is base class of non-layout components.
   # @see http://docs.webix.com/api__refs__ui.baseview.html
   class BaseView
-    extend NativeBase
+    include NativeBase
     extend AtomRender
     extend BaseBind
     extend Destruction
@@ -22,9 +22,9 @@ module Webix
     alias_native :disable
     alias_native :enable
     alias_native :get_child_views, :getChildView
-    alias_native :get_form_view, :getFormView, as: View
+    # alias_native :get_form_view, :getFormView, as: View
     alias_native :get_node, :getNode
-    alias_native :get_parent_view, :getParentView, as: View
+    # alias_native :get_parent_view, :getParentView, as: View
     alias_native :get_top_parent_view, :getTopParentView
     alias_native :hide
     alias_native :is_enabled, :isEnabled
