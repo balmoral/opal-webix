@@ -3,7 +3,7 @@ module Webix
   module EventSystem
     # methods
     def attach_event(proc = nil, &block)
-      proc ? attachEvent(proc) : attachEvent(&block)
+      proc ? super(proc) : native.attachEvent(&block)
     end
     alias_native :block_event, :blockEvent
     alias_native :call_event, :callEvent
