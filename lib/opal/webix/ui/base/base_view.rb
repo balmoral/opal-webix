@@ -72,11 +72,11 @@ module Webix
     alias_native :adjust
     alias_native :disable
     alias_native :enable
-    alias_native :get_child_views, :getChildView
-    # alias_native :get_form_view, :getFormView, as: View
-    alias_native :get_node, :getNode
-    # alias_native :get_parent_view, :getParentView, as: View
-    alias_native :get_top_parent_view, :getTopParentView
+    alias_native :get_child_views, :getChildView # array of natives: need to map to views
+    alias_native :get_form_view, :getFormView # returns native: needs to be wrapped
+    alias_native :get_node, :getNode # returns native: needs to be wrapped
+    alias_native :get_parent_view, :getParentView # returns native: needs to be wrapped
+    alias_native :get_top_parent_view, :getTopParentView # returns native: needs to be wrapped
     alias_native :hide
     alias_native :is_enabled, :isEnabled
     alias_method :enabled?, :is_enabled

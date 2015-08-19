@@ -1,6 +1,6 @@
 module Webix
   # http://docs.webix.com/api__refs__ui.button.html
-  class Button < View
+  class Button < Proto
     # methods
     alias_native :blur
     alias_native :focus

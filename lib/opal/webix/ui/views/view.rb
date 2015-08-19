@@ -5,6 +5,5 @@ module Webix
   # Can also be used as a placeholder in a layout.
   # @see http://docs.webix.com/api__refs__ui.view.html
   class View < BaseView
-    alias_native :refresh
   end
 end
