@@ -17,8 +17,6 @@ module Webix
      def view(id);     wrap(id, Webix::View)    end
      def button(id);   wrap(id, Webix::Button)  end
 
-     private
-
      def wrap(id, klass)
        o = `$$(#{id})`
        o ? klass.new(o) : nil
