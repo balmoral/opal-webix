@@ -8,7 +8,6 @@ module Webix
   # @see http://docs.webix.com/api__refs__ui.baselayout.html
   class BaseLayout
     include BaseView
-    extend UI
 
     # methods
     alias_native :add_view, :addView

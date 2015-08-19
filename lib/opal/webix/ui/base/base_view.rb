@@ -54,13 +54,9 @@ module Webix
     alias_native :config
     alias_native :name
 
-    # @see http://docs.webix.com/api__toc__ui.html
-    # The :view property does not need to be set.
-    # The :container property should be set to the
-    # id of the view which contains this component
-    # or the view itself TODO: ??
-    def initialize(options)
-      super UI.new(options.merge({view: self.class.tag}))
+    # Used by Webix::UI to wrap a native JS element
+    def initialize(native)
+      super
     end
 
     # Returns a string which specifies the
