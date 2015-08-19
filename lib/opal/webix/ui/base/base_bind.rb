@@ -1,14 +1,11 @@
 module Webix
   # @see http://docs.webix.com/api__refs__basebind.html
   module BaseBind
+    include NativeBase
     # methods
     alias_native :bind
     alias_native :unbind
     # events
     alias_native :on_bind_request, :onBindRequest
-
-    def self.included(klass)
-      klass.extend BaseBind
-    end
   end
 end

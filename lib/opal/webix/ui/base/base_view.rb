@@ -11,11 +11,11 @@ module Webix
   # @see http://docs.webix.com/api__refs__ui.baseview.html
   class BaseView
     include NativeBase
-    include AtomRender
-    include BaseBind
-    include Destruction
-    include EventSystem
-    include Settings
+    extend AtomRender
+    extend BaseBind
+    extend Destruction
+    extend EventSystem
+    extend Settings
 
     # methods
     alias_native :adjust

@@ -1,6 +1,7 @@
 module Webix
   # @see http://docs.webix.com/api__refs__eventsystem.html
   module EventSystem
+    include NativeBase
     # methods
     alias_native :attach_event, :attachEvent
     alias_native :block_event, :blockEvent
@@ -11,10 +12,5 @@ module Webix
     alias_native :unblock_event, :unblockEvent
     # properties
     alias_native :on
-
-    def self.included(klass)
-      klass.extend EventSystem
-    end
-
   end
 end

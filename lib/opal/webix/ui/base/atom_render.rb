@@ -1,6 +1,7 @@
 module Webix
   # @see http://docs.webix.com/api__refs__atomrender.html
   module AtomRender
+    include NativeBase
     # methods
     alias_native :render
     alias_native :sync
@@ -10,9 +11,5 @@ module Webix
     # properties
     alias_native :content
     alias_native :template
-
-    def self.included(klass)
-      klass.extend AtomRender
-    end
   end
 end
