@@ -14,7 +14,7 @@ module Webix
     extend AtomRender
     extend BaseBind
     extend Destruction
-    extend EventSystem
+    # extend EventSystem
     extend Settings
 
     # event system methods
