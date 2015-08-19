@@ -14,6 +14,7 @@ module Webix
     alias_native :on_before_render, :onBeforeRender
     alias_native :on_change, :onChange
     alias_native :on_item_click, :onItemClick
+    alias_method :on_click, :on_item_click
   end
 end
 
