@@ -14,13 +14,15 @@ module Webix
       self
     end
 
-     def view(id);     wrap(id, Webix::View)    end
-     def button(id);   wrap(id, Webix::Button)  end
+    def view(id);     wrap(id, Webix::View)    end
+    def button(id);   wrap(id, Webix::Button)  end
 
-     def wrap(id, klass)
-       o = `$$(#{id})`
-       o ? klass.new(o) : nil
-     end
+    protected
+
+    def wrap(id, klass)
+      o = `$$(#{id})`
+      o ? klass.new(o) : nil
+    end
 
   end
 end
