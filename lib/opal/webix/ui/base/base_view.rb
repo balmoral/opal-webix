@@ -11,11 +11,62 @@ module Webix
   # @see http://docs.webix.com/api__refs__ui.baseview.html
   class BaseView
     include NativeBase
-    extend AtomRender
-    extend BaseBind
-    extend Destruction
-    extend EventSystem
-    extend Settings
+
+    #
+    # AtomRender
+    #
+    # methods
+    alias_native :render
+    alias_native :sync
+    # events
+    alias_native :on_after_render, :onAfterRender
+    alias_native :on_before_render, :onBeforeRender
+    # properties
+    alias_native :content
+    alias_native :template
+
+    #
+    # BaseBind
+    #
+    # methods
+    alias_native :bind
+    alias_native :unbind
+    # events
+    alias_native :on_bind_request, :onBindRequest
+
+    #
+    # Destruction
+    #
+    # methods
+    alias_native :destructor
+    # events
+    alias_native :on_destruct, :onDestruct
+
+    #
+    # EventSystem
+    #
+    # methods
+    alias_native :attach_event, :attachEvent
+    alias_native :block_event, :blockEvent
+    alias_native :call_event, :callEvent
+    alias_native :detach_event, :detachEvent
+    alias_native :has_event, :hasEvent
+    alias_native :map_event, :mapEvent
+    alias_native :unblock_event, :unblockEvent
+    # properties
+    alias_native :on
+
+    #
+    # Settings
+    #
+    # methods
+    alias_native :define
+    # properties
+    alias_native :id
+
+    #
+    # BaseView
+    #
 
     # methods
     alias_native :adjust
