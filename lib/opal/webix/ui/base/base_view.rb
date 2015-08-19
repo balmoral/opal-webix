@@ -9,13 +9,13 @@ module Webix
   # is the base class of BaseLayout and View, even
   # though View is base class of non-layout components.
   # @see http://docs.webix.com/api__refs__ui.baseview.html
-  module BaseView
-    include NativeBase
-    include AtomRender
-    include BaseBind
-    include Destruction
-    include EventSystem
-    include Settings
+  class BaseView
+    extend NativeBase
+    extend AtomRender
+    extend BaseBind
+    extend Destruction
+    extend EventSystem
+    extend Settings
 
     # methods
     alias_native :adjust
