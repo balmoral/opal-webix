@@ -15,6 +15,7 @@ module Webix
     end
 
     def view(id);     wrap(id, Webix::View)    end
+    def proto(id);    wrap(id, Webix::Proto)   end
     def button(id);   wrap(id, Webix::Button)  end
 
     def wrap(id, klass)
