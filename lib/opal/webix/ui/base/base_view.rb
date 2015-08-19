@@ -17,6 +17,15 @@ module Webix
     extend EventSystem
     extend Settings
 
+    # event system methods
+    alias_native :attach_event, :attachEvent
+    alias_native :block_event, :blockEvent
+    alias_native :call_event, :callEvent
+    alias_native :detach_event, :detachEvent
+    alias_native :has_event, :hasEvent
+    alias_native :map_event, :mapEvent
+    alias_native :unblock_event, :unblockEvent
+
     # methods
     alias_native :adjust
     alias_native :disable
