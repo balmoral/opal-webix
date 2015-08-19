@@ -10,5 +10,9 @@ module Webix
     # properties
     alias_native :content
     alias_native :template
+
+    def self.included(klass)
+      klass.extend AtomRender
+    end
   end
 end

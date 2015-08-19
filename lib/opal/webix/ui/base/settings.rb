@@ -6,5 +6,10 @@ module Webix
     alias_native :define
     # properties
     alias_native :id
+
+    def self.included(klass)
+      klass.extend Settings
+    end
+
   end
 end

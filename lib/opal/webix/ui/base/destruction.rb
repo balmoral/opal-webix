@@ -5,5 +5,10 @@ module Webix
     alias_native :destructor
     # events
     alias_native :on_destruct, :onDestruct
+
+    def self.included(klass)
+      klass.extend Destruction
+    end
+
   end
 end

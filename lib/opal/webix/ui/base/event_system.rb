@@ -11,5 +11,10 @@ module Webix
     alias_native :unblock_event, :unblockEvent
     # properties
     alias_native :on
+
+    def self.included(klass)
+      klass.extend EventSystem
+    end
+
   end
 end

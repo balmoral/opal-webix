@@ -19,5 +19,6 @@ module Webix
     alias_native :responsive
     alias_native :rows
     alias_native :visible_batch, :visibleBatch
+
   end
 end
