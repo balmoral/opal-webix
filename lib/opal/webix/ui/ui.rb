@@ -11,7 +11,7 @@ module Webix
           webix.ui(#{h.to_n})
         });
       }
-      self
+      self.class
     end
 
      def view(id);     wrap(id, Webix::View)    end
