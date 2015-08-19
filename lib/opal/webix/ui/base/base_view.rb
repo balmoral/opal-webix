@@ -54,11 +54,6 @@ module Webix
     alias_native :config
     alias_native :name
 
-    # Used by Webix::UI to wrap a native JS element
-    def initialize(native)
-      super
-    end
-
     # Returns a string which specifies the
     # :view tag of the component per Webix
     # API docs. Defaults to lower case of
