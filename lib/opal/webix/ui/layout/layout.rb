@@ -1,4 +1,4 @@
-module Webix
+class Webix
   # A vertical or horizontal layout without the headers.
   # The component allows you to programmatically define
   # interface structure by organizing views in a vertical

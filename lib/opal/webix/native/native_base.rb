@@ -1,4 +1,4 @@
-module Webix
+class Webix
 
 
   module NativePatches

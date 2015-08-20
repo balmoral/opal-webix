@@ -1,5 +1,5 @@
 # @see http://docs.webix.com/
-module Webix
+class Webix
   module UI
     module_function
 
