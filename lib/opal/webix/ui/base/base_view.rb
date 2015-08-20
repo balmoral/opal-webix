@@ -53,10 +53,10 @@ module Webix
     # alias_native :attach_event, :attachEvent
     def attach_event(event, proc = nil, &block)
       if proc
-        puts "#{self.class.name}##{__method__}[#{__LINE__}](#{event}) : proc : call native attachEvent(#{proc})"
+        puts "#{self.class.name}##{__method__}[#{__LINE__}](#{event}) : proc : call native attachEvent(#{event}, #{proc})"
         Native.call(to_n, 'attachEvent', event, proc)
       else
-        puts "#{self.class.name}##{__method__}[#{__LINE__}](#{event}) : block : call native attachEvent(#{block})"
+        puts "#{self.class.name}##{__method__}[#{__LINE__}](#{event}) : block : call native attachEvent(#{event}, #{block})"
         Native.call(to_n, 'attachEvent', event, &block)
       end
     end
