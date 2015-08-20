@@ -53,13 +53,13 @@ module Webix
       %x{
         var prop = #{obj}[#{key}];
         if (prop == null)
-          console.log(obj.toString() + "." + key.toString() + " is undefined");
+          console.log(#{obj}.toString() + "." + #{key}.toString() + " is undefined");
         else {
-          console.log(obj.toString() + "." + key.toString() + " = " + prop.toString());
+          console.log(#{obj}.toString() + "." + #{key}.toString() + " = " + prop.toString());
           if (prop instanceof Function) {
             var converted = new Array(args.length);
 
-            console.log(key + " is Function of " + obj.toString());
+            console.log(key + " is Function of " + #{obj}.toString());
 
             for (var i = 0, length = args.length; i < length; i++) {
               var item = args[i],
@@ -75,7 +75,7 @@ module Webix
             return #{Native(`prop.apply(#{obj}, converted)`)};
           }
           else {
-            console.log(key + " is property of " + obj.toString());
+            console.log(key + " is property of " + #{obj}.toString());
             return #{Native(`prop`)};
           }
         }
