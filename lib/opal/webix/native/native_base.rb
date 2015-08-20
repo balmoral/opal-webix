@@ -42,9 +42,9 @@ module Webix
     include Native
 
     def initialize(native)
-      `console.log("Native: " + #{self.class.name} + "#initialize(" + #{native}+ ")")`
-      if native.nil?
-        Kernel.raise ArgumentError, "native is nil"
+      `console.log("NativeBase: " + #{self.class.name} + "#initialize(" + #{native}+ ")")`
+      if `#{native} == null`
+        Kernel.raise ArgumentError, "native is nill"
       end
       super(native)
     end
