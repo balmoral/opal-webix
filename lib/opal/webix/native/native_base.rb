@@ -41,6 +41,14 @@ module Webix
   module NativeBase
     include Native
 
+    def initialize(native)
+      `console.log("Native: " + #{self.class.name} + "#initialize(" + #{native}+ ")")`
+      if native.nil?
+        Kernel.raise ArgumentError, "native is nil"
+      end
+      super(native)
+    end
+
     def self.included(klass)
       #klass.extend Native::Helpers
       klass.extend NativePatches
