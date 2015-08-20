@@ -19,9 +19,9 @@ module Webix
     def button(id);   wrap(id, Webix::Button)  end
 
     def wrap(id, klass)
-      o = `$(#{id})`
+      o = `$$(#{id}.toString()`
       is_null = `o == null`
-      puts "#{self.class.name}##{__method__}[#{__LINE__}](#{id}, #{klass}) o => #{o} is_null=#{is_null}"
+      puts "#{self.name}##{__method__}[#{__LINE__}](#{id}, #{klass}) o => #{o} is_null=#{is_null}"
       `o == null` ? nil : klass.new(o)
     end
 
