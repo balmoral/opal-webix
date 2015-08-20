@@ -55,7 +55,7 @@ module Webix
         if (prop instanceof Function) {
           var converted = new Array(args.length);
 
-          console.log(key + " is Function of " + obj.toString();
+          console.log(key + " is Function of " + obj.toString());
 
           for (var i = 0, length = args.length; i < length; i++) {
             var item = args[i],
