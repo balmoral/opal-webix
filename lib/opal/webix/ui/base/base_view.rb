@@ -55,14 +55,15 @@ module Webix
     def attach_event(event, proc = nil, &block)
       if proc
         puts "#{self.class.name}##{__method__}[#{__LINE__}](#{event}) : proc : call native attachEvent(#{event}, #{proc})"
-        Native.call(to_n, 'attachEvent', event, proc)
+        Native.call(to_n, 'attachEventx', event, proc)
       elsif block
         puts "#{self.class.name}##{__method__}[#{__LINE__}](#{event}) : block : call native attachEvent(#{event}, #{block})"
-        Native.call(to_n, 'attachEvent', event, &block)
+        Native.call(to_n, 'attachEventx', event, &block)
       else
         raise ArgumentError, 'missing proc or block'
       end
-      puts "#{self.class.name}##{__method__}[#{__LINE__}](#{event}) : has_event(#{event}) => #{has_event(event)}"
+      has = has_event(event)
+      puts "#{self.class.name}##{__method__}[#{__LINE__}](#{event}) : has_event(#{event}) => '#{has}'"
     end
 
     alias_native :block_event, :blockEvent
