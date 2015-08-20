@@ -52,6 +52,7 @@ module Webix
     def debug_call(obj, key, *args, &block)
       %x{
         var prop = #{obj}[#{key}];
+        console.log(obj.toString() + "." + key.toString() + " = " + prop.toString());
         if (prop instanceof Function) {
           var converted = new Array(args.length);
 
