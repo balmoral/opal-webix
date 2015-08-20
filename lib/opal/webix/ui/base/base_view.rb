@@ -49,61 +49,12 @@ module Webix
     # EventSystem
     # ###########
 
-    def debug_call(obj, key, *args, &block)
-      puts "#{self.class.name}##{__method__}[#{__LINE__}](obj=#{obj}, key=#{key}, *args=#{args}, &block=#{block})"
-      %x{
-        var prop = #{obj}[#{key}];
-        if (prop == null)
-          console.log(#{obj}.toString() + "." + #{key}.toString() + " is undefined");
-        else {
-          console.log(#{obj}.toString() + "." + #{key}.toString() + " = " + prop.toString());
-          if (prop instanceof Function) {
-            var converted = new Array(args.length);
-
-            console.log(key + " is Function of " + #{obj}.toString());
-
-            for (var i = 0, length = args.length; i < length; i++) {
-              var item = args[i],
-                  conv = #{try_convert(`item`)};
-
-              converted[i] = conv === nil ? item : conv;
-            }
-
-            if (block !== nil) {
-              converted.push(block);
-            }
-
-            return #{Native(`prop.apply(#{obj}, converted)`)};
-          }
-          else {
-            console.log(key + " is property of " + #{obj}.toString());
-            return #{Native(`prop`)};
-          }
-        }
-      }
-    end
-
     # methods
-    # alias_native :attach_event, :attachEvent
-    alias_native :has_event, :hasEvent
-    def attach_event(event, proc = nil, &block)
-      if proc
-        puts "#{self.class.name}##{__method__}[#{__LINE__}](#{event}) : proc : call native attachEvent(#{event}, #{proc})"
-        debug_call(to_n, 'attachEvent', event, proc)
-      elsif block
-        puts "#{self.class.name}##{__method__}[#{__LINE__}](#{event}) : block : call native attachEvent(#{event}, #{block})"
-        debug_call(to_n, 'attachEvent', event, &block)
-      else
-        raise ArgumentError, 'missing proc or block'
-      end
-      has = has_event(event)
-      puts "#{self.class.name}##{__method__}[#{__LINE__}](#{event}) : has_event(#{event}) => '#{has}'"
-    end
-
+    alias_native :attach_event, :attachEvent
     alias_native :block_event, :blockEvent
     alias_native :call_event, :callEvent
     alias_native :detach_event, :detachEvent
-    # alias_native :has_event, :hasEvent
+    alias_native :has_event, :hasEvent
     alias_native :map_event, :mapEvent
     alias_native :unblock_event, :unblockEvent
     # properties
