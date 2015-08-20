@@ -49,16 +49,44 @@ module Webix
     # EventSystem
     # ###########
 
+    def debug_call(obj, key, *args, &block)
+      %x{
+        var prop = #{obj}[#{key}];
+        if (prop instanceof Function) {
+          var converted = new Array(args.length);
+
+          console.log(key + "is Function of ");
+
+          for (var i = 0, length = args.length; i < length; i++) {
+            var item = args[i],
+                conv = #{try_convert(`item`)};
+
+            converted[i] = conv === nil ? item : conv;
+          }
+
+          if (block !== nil) {
+            converted.push(block);
+          }
+
+          return #{Native(`prop.apply(#{obj}, converted)`)};
+        }
+        else {
+          console.log(key + "is property ");
+          return #{Native(`prop`)};
+        }
+      }
+    end
+
     # methods
     # alias_native :attach_event, :attachEvent
     alias_native :has_event, :hasEvent
     def attach_event(event, proc = nil, &block)
       if proc
         puts "#{self.class.name}##{__method__}[#{__LINE__}](#{event}) : proc : call native attachEvent(#{event}, #{proc})"
-        Native.call(to_n, 'fsdffdsaffasf', event, proc)
+        debug_call(to_n, 'fsdffdsaffasf', event, proc)
       elsif block
         puts "#{self.class.name}##{__method__}[#{__LINE__}](#{event}) : block : call native attachEvent(#{event}, #{block})"
-        Native.call(to_n, 'aasdfsdafsadfd', event, &block)
+        debug_call(to_n, 'aasdfsdafsadfd', event, &block)
       else
         raise ArgumentError, 'missing proc or block'
       end
