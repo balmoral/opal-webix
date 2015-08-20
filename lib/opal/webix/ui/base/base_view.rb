@@ -52,28 +52,32 @@ module Webix
     def debug_call(obj, key, *args, &block)
       %x{
         var prop = #{obj}[#{key}];
-        console.log(obj.toString() + "." + key.toString() + " = " + prop.toString());
-        if (prop instanceof Function) {
-          var converted = new Array(args.length);
-
-          console.log(key + " is Function of " + obj.toString());
-
-          for (var i = 0, length = args.length; i < length; i++) {
-            var item = args[i],
-                conv = #{try_convert(`item`)};
-
-            converted[i] = conv === nil ? item : conv;
-          }
-
-          if (block !== nil) {
-            converted.push(block);
-          }
-
-          return #{Native(`prop.apply(#{obj}, converted)`)};
-        }
+        if (prop is undefined)
+          console.log(obj.toString() + "." + key.toString() + " is undefined");
         else {
-          console.log(key + " is property of " + obj.toString());
-          return #{Native(`prop`)};
+          console.log(obj.toString() + "." + key.toString() + " = " + prop.toString());
+          if (prop instanceof Function) {
+            var converted = new Array(args.length);
+
+            console.log(key + " is Function of " + obj.toString());
+
+            for (var i = 0, length = args.length; i < length; i++) {
+              var item = args[i],
+                  conv = #{try_convert(`item`)};
+
+              converted[i] = conv === nil ? item : conv;
+            }
+
+            if (block !== nil) {
+              converted.push(block);
+            }
+
+            return #{Native(`prop.apply(#{obj}, converted)`)};
+          }
+          else {
+            console.log(key + " is property of " + obj.toString());
+            return #{Native(`prop`)};
+          }
         }
       }
     end
