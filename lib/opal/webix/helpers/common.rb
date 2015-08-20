@@ -28,7 +28,7 @@ module Opal
 
     # Returns the dataprocessor object given a component id.
     # @see http://docs.webix.com/api___dp.html
-    alias_native :dp, as: DataProcessor
+    # alias_native :dp, as: DataProcessor
 
     # Closes active editor in all webix components.
     # @see http://docs.webix.com/api___editstop.html
