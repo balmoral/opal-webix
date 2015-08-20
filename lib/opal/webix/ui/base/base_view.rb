@@ -88,10 +88,10 @@ module Webix
     def attach_event(event, proc = nil, &block)
       if proc
         puts "#{self.class.name}##{__method__}[#{__LINE__}](#{event}) : proc : call native attachEvent(#{event}, #{proc})"
-        debug_call(to_n, 'attachEvent', event, proc)
+        debug_call(self, 'attachEvent', event, proc)
       elsif block
         puts "#{self.class.name}##{__method__}[#{__LINE__}](#{event}) : block : call native attachEvent(#{event}, #{block})"
-        debug_call(to_n, 'attachEvent', event, &block)
+        debug_call(self, 'attachEvent', event, &block)
       else
         raise ArgumentError, 'missing proc or block'
       end
