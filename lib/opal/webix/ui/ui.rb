@@ -20,7 +20,8 @@ module Webix
 
     def wrap(id, klass)
       o = `$(#{id})`
-      puts "#{self.class.name}##{__method__}[#{__LINE__}](#{id}, #{klass}) o => #{o}"
+      is_null = `o == null`
+      puts "#{self.class.name}##{__method__}[#{__LINE__}](#{id}, #{klass}) o => #{o} is_null=#{is_null}"
       `o == null` ? nil : klass.new(o)
     end
 
