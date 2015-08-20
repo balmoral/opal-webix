@@ -1,10 +1,6 @@
 # We need the Opal Native support library here:
 require 'native'
 
-module Webix
-  class UnsupportedFeature < RuntimeError; end
-end
-
 # These requires must be loaded in order of dependency:
 require 'opal/webix/native/native_base'
 require 'opal/webix/ui/ui'

@@ -1,3 +1,7 @@
+class Webix
+  class UnsupportedFeature < RuntimeError; end
+end
+
 if RUBY_ENGINE == 'opal'
   require 'opal/webix/setup'
 else

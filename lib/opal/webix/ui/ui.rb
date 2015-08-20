@@ -6,6 +6,7 @@ module Webix
     def create(options)
       h = options.to_h
       puts "#{self.class.name}##{__method__}[#{__LINE__}] : calling webix.ui(#{h})"
+      # the caller should ensure the
       # %x{
       #   webix.ready(function(){
       #     webix.ui(#{h.to_n})
