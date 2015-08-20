@@ -1,5 +1,5 @@
 # @see http://docs.webix.com/
-class Webix
+module Webix
   module UI
     module_function
 
@@ -28,4 +28,9 @@ class Webix
     end
 
   end
+
+  def ui
+    UI
+  end
+
 end

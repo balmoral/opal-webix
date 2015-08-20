@@ -1,4 +1,4 @@
-class Webix
+module Webix
   # The very base object for all components,
   # both non-layout and layout.
   # The component serves as the base class that

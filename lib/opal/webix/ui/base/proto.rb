@@ -1,4 +1,4 @@
-class Webix
+module Webix
   # A pure view with borders but without any content inside it.
   # The component serves as the base class that defines properties,
   # methods, and events common for non-layout UI components.

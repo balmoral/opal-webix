@@ -1,4 +1,5 @@
-class Webix
+module Webix
+  module_function
   class UnsupportedFeature < RuntimeError; end
 end
 
@@ -9,3 +10,4 @@ else
   require 'opal/webix/version'
   Opal.append_path File.expand_path('../..', __FILE__).untaint
 end
+

@@ -1,4 +1,4 @@
-class Webix
+module Webix
   module_function
 
   # @see http://docs.webix.com/api__refs__common_helpers.html

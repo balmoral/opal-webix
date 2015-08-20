@@ -1,4 +1,4 @@
-class Webix
+module Webix
   # A base class for layout-based UI components.
   # The component serves as the base class that
   # defines properties, methods, and events

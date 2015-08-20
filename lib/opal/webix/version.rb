@@ -1,6 +1,6 @@
 module Opal
 
-  class Webix
+  module Webix
     VERSION = '0.0.1'
   end
 
