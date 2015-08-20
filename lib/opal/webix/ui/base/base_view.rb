@@ -55,7 +55,7 @@ module Webix
         if (prop instanceof Function) {
           var converted = new Array(args.length);
 
-          console.log(key + "is Function of ");
+          console.log(key + " is Function");
 
           for (var i = 0, length = args.length; i < length; i++) {
             var item = args[i],
@@ -71,7 +71,7 @@ module Webix
           return #{Native(`prop.apply(#{obj}, converted)`)};
         }
         else {
-          console.log(key + "is property ");
+          console.log(key + " is property ");
           return #{Native(`prop`)};
         }
       }
