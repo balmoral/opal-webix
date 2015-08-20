@@ -50,7 +50,7 @@ module Webix
     # ###########
 
     def debug_call(obj, key, *args, &block)
-      puts "#{self.class.name}##{__method__}[#{__LINE__}](obj=#{obj.nil? ? 'nil' : obj}, key=#{key}, *args=#{args}, &block=#{block})"
+      puts "#{self.class.name}##{__method__}[#{__LINE__}](obj=#{obj}, key=#{key}, *args=#{args}, &block=#{block})"
       %x{
         var prop = #{obj}[#{key}];
         if (prop == null)
