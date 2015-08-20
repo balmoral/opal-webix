@@ -56,7 +56,7 @@ module Webix
         puts "#{self.class.name}##{__method__}[#{__LINE__}] : proc : call native attachEvent(#{proc})"
         Native.call(to_n, 'attachEvent', proc)
       else
-        puts "#{self.class.name}##{__method__}[#{__LINE__}] : block : call native attachEvent(#{&block})"
+        puts "#{self.class.name}##{__method__}[#{__LINE__}] : block : call native attachEvent(#{block})"
         Native.call(to_n, 'attachEvent', &block)
       end
     end
