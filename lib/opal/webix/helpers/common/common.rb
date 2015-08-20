@@ -3,10 +3,14 @@ class Webix
 
   # @see http://docs.webix.com/api__refs__common_helpers.html
 
+  def webix
+    `webix`
+  end
+
   # Creates an alert window.
   # @see http://docs.webix.com/api___alert.html
-  def alert(**args, &block)
-
+  def alert(*args, &block)
+    Native.call(webix, __method__, *args, &block)
   end
 
   # Animates an html area.
