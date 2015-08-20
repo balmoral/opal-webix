@@ -11,9 +11,7 @@ module Webix
       #     webix.ui(#{h.to_n})
       #   });
       # }
-      %x{
-        webix.ui(#{h.to_n})
-      }
+      `webix.ui(#{h.to_n})`
       self
     end
 
