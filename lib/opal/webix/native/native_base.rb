@@ -44,7 +44,7 @@ module Webix
     def initialize(native)
       `console.log("NativeBase: " + #{self.class.name} + "#initialize(" + #{native}+ ")")`
       if `#{native} == null`
-        Kernel.raise ArgumentError, "native is nill"
+        Kernel.raise ArgumentError, "native is null"
       end
       super(native)
     end

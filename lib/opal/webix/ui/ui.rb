@@ -20,7 +20,7 @@ module Webix
 
     def wrap(id, klass)
       o = `$$(#{id})`
-      o ? klass.new(o) : nil
+      `o == null` ? klass.new(o) : nil
     end
 
   end
