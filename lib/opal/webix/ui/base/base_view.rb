@@ -52,7 +52,7 @@ module Webix
     def debug_call(obj, key, *args, &block)
       %x{
         var prop = #{obj}[#{key}];
-        if (prop is undefined)
+        if (prop == null)
           console.log(obj.toString() + "." + key.toString() + " is undefined");
         else {
           console.log(obj.toString() + "." + key.toString() + " = " + prop.toString());
