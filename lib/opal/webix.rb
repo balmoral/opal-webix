@@ -1,6 +1,8 @@
-module Webix
-  module_function
-  class UnsupportedFeature < RuntimeError; end
+module Opal
+  module Webix
+    module_function
+    class UnsupportedFeature < RuntimeError; end
+  end
 end
 
 if RUBY_ENGINE == 'opal'
