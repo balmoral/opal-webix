@@ -2,6 +2,7 @@ module Opal
   module Webix
     module_function
     class UnsupportedFeature < RuntimeError; end
+    class DataProcessor; end
   end
 end
 
