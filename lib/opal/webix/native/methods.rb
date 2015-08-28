@@ -8,22 +8,20 @@ module Methods
 
   def method_missing(name, *args, &block)
     if name[0,3] == 'on_'
-      `console.log(#{"method_missing: #{self.class.name}##{name} : calling native '#{__translate(name[3..-1])}'"})`
-      Native.call(@native, __translate(name[3..-1]), *args, &block)
+      args.insert(0, native_method(name))
+      Native.call(@native, 'attachEvent', *argsex, &block)
     else
-      `console.log(#{"method_missing: #{self.class.name}##{name} : calling native '#{__translate(name)}'"})`
-      Native.call(@native, __translate(name), *args, &block)
+      Native.call(@native, native_method(name), *args, &block)
     end
   end
 
-  def respond_to?(name)
-    true
-  end
+  # what's the point?
+  # def respond_to?(name); true end
 
   private
 
-  def __translate(method_name)
-    c = camel_case(method_name)
+  def native_method(name)
+    c = camel_case(name)
     c[0].downcase + c[1..-1]
   end
 end
