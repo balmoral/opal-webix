@@ -6,7 +6,7 @@ module MethodBridge
 
   def method_missing(name, *args, &block)
     cc = __camel_case(name)
-    `console.log(#{"#{self.class.name}#method_missing(#{name},...) => #{cc}"})`
+    # `console.log(#{"#{self.class.name}#method_missing(#{name},...) => #{cc}"})`
     if name[0,3] == 'on_'
       args.insert(0, cc)
       Native.call(@native, 'attachEvent', *args, &block)
