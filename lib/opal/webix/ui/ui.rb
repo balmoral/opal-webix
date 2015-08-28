@@ -9,7 +9,7 @@ module Opal
       # See Webix API docs for config options
       # Caller should ensure the doc is ready
       def <<(options)
-        h = options.to_h
+        h = strip_ids_from_ons(options.to_h)
         # `console.log(#{"#{self.class.name}##{__method__}[#{__LINE__}] : calling webix.ui(#{h})"})`
         `webix.ui(#{h.to_n})`
         self
@@ -39,6 +39,55 @@ module Opal
 
     def ui
       UI
+    end
+
+    private
+
+    # Volt::Model's add id's to all embedded models.
+    # And Webix doesn't handle id's in 'on' hashes.
+    # So we gotta get rid of them.
+    def strip_ids_from_ons(arg)
+      if arg.is_a?(Hash)
+        on = arg[:on]
+        if on
+          strip_ids_from_on(on.dup)
+        else
+          arg.each_value do |v|
+            strip_ids_from_ons(v)
+          end
+        end
+      elsif arg.is_a?(Enumerable)
+        arg.each do |v|
+          strip_ids_from_ons(v)
+        end
+      # else do no more
+      end
+    end
+
+    # Delete any entries with key :id for given hash
+    # and do so recursively for any nested hashes.
+    def strip_ids_from_on(hash)
+      x = hash.delete(:id)
+      puts "#{self.class.name}##{__method__}: hash.delete(:id) => #{x}"
+      hash.each_value do |k, v|
+        if v.is_a?(Hash)
+          strip_ids_from_on(v)
+        end
+      end
+    end
+
+    def deinit_webix
+      page._webix = nil
+    end
+
+    # To be reactive we must watch for model changes
+    def start_watching
+      @in_start = true
+    end
+
+
+    def debug(_method, line, s = nil)
+      Volt.logger.debug "#{self.class.name}##{_method}[#{line}] : #{s}"
     end
 
   end
