@@ -43,7 +43,7 @@ module Opal; module Webix
       if arg.is_a?(Hash)
         on = arg[:on]
         if on
-          arg[:on] = strip_ids_from_on(on.dup)
+          arg[:on] = strip_ids_from_on(on)
         else
           arg.each_value do |v|
             strip_ids_from_ons(v)
@@ -58,16 +58,15 @@ module Opal; module Webix
       arg
     end
 
-    # Delete any entries with key :id for given hash
-    # and do so recursively for any nested hashes.
-    def strip_ids_from_on(hash)
-      x = hash.delete(:id)
-      puts "#{self.class.name}##{__method__}: hash.delete(:id) => #{x}"
-      hash.each_value do |k, v|
-        if v.is_a?(Hash)
-          strip_ids_from_on(v)
+    # Returns a new hash with the :id entry removed.
+    def strip_ids_from_on(arg)
+      result = {}
+      arg.each do |k, v|
+        unless k == :id
+          strip_ids_from_ons(v)
         end
       end
+      result
     end
 
     def deinit_webix
