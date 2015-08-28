@@ -5,12 +5,13 @@ module Opal; module Webix
 module MethodBridge
 
   def method_missing(name, *args, &block)
-    `console.log(#{"#{self.class.name}#method_missing(#{name},...)"})`
+    cc = __camel_case(name)
+    `console.log(#{"#{self.class.name}#method_missing(#{name},...) => #{cc}"})`
     if name[0,3] == 'on_'
-      args.insert(0, __camel_case(name[3..-1]))
+      args.insert(0, cc)
       Native.call(@native, 'attachEvent', *args, &block)
     else
-      Native.call(@native, __camel_case(name), *args, &block)
+      Native.call(@native, cc, *args, &block)
     end
   end
 
@@ -20,9 +21,7 @@ module MethodBridge
   private
 
   def __camel_case(s)
-    cc = s.gsub(/[_\-][a-z]/) { |a| a[1].upcase }
-    `console.log(#{"__camel_case(#{s}) => #{cc}"})`
-    cc
+    s.gsub(/[_\-][a-z]/) { |a| a[1].upcase }
   end
 
 end
