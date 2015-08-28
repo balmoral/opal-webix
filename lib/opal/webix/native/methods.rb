@@ -9,7 +9,7 @@ module Methods
   def method_missing(name, *args, &block)
     if name[0,3] == 'on_'
       args.insert(0, native_method(name))
-      Native.call(@native, 'attachEvent', *argsex, &block)
+      Native.call(@native, 'attachEvent', *args, &block)
     else
       Native.call(@native, native_method(name), *args, &block)
     end
