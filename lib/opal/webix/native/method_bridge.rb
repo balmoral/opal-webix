@@ -20,7 +20,9 @@ module MethodBridge
   private
 
   def __camel_case(s)
-    s.gsub(/[_\-][a-z]/) { |a| a[1].upcase }
+    cc = s.gsub(/[_\-][a-z]/) { |a| a[1].upcase }
+    `console.log(#{"__camel_case(#{s}) => #{cc}"})`
+    cc
   end
 
 end
