@@ -41,6 +41,10 @@ module Opal
     module NativeBase
       include Native
 
+      def camel_case(string)
+        string.to_s.sub(/^[a-z]/){|a|a.upcase}.gsub(/[_\-][a-z]/) { |a| a[1].upcase }
+      end
+
       def self.included(klass)
         #klass.extend Native::Helpers
         klass.extend NativePatches
