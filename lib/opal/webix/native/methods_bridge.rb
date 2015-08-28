@@ -1,10 +1,8 @@
 module Opal; module Webix
     
-# Handle events using method missing on methods starting with 'on_'.
-# @see Webix API docs http://docs.webix.com/api__toc__ui.html
-# for event handling.
-module Methods
-  include NativeBase
+# Bridge missing methods to Webix API calls.
+# Translate and augment as required.
+module MethodsBridge
 
   def method_missing(name, *args, &block)
     if name[0,3] == 'on_'
@@ -15,7 +13,7 @@ module Methods
     end
   end
 
-  # what's the point?
+  # What's the point?
   # def respond_to?(name); true end
 
   private

@@ -1,6 +1,8 @@
 # @see http://docs.webix.com/
 module Opal
   module Webix
+    module_function
+
     module UI
       module_function
 
@@ -17,15 +19,11 @@ module Opal
         self
       end
 
-      def view(id);     wrap(id, Webix::View)    end
-      def proto(id);    wrap(id, Webix::Proto)   end
-      def button(id);   wrap(id, Webix::Button)  end
-
-      def wrap(id, klass)
+      def [](id)
         o = `webix.$$(#{id})`
         is_null = `o == null`
-        puts "#{self.name}##{__method__}[#{__LINE__}](#{id}, #{klass}) o => #{o} is_null=#{is_null}"
-        `o == null` ? nil : klass.new(o)
+        puts "#{self.name}##{__method__}[#{__LINE__}](#{id}) o => #{o} is_null=#{is_null}"
+        `o == null` ? nil : Component.new(o)
       end
 
     end
@@ -36,3 +34,5 @@ module Opal
 
   end
 end
+
+$webix = Opal::Webix
