@@ -8,8 +8,10 @@ module Methods
 
   def method_missing(name, *args, &block)
     if name[0,3] == 'on_'
+      `console.log(#{"method_missing: #{self.class.name}##{name} : calling native '#{camel_case(name[3..-1])}'"})`
       Native.call(@native, camel_case(name[3..-1]), *args, &block)
     else
+      `console.log(#{"method_missing: #{self.class.name}##{name} : calling native '#{camel_case(name)}'"})`
       Native.call(@native, camel_case(name), *args, &block)
     end
   end
