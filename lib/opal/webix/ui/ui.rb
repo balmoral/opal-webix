@@ -41,8 +41,6 @@ module Opal
       UI
     end
 
-    private
-
     # Volt::Model's add id's to all embedded models.
     # And Webix doesn't handle id's in 'on' hashes.
     # So we gotta get rid of them.
