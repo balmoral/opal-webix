@@ -5,7 +5,7 @@ module Opal; module Webix
 module MethodsBridge
 
   def method_missing(name, *args, &block)
-    `console.log(#{"self.class.name"}#method_missing(#{name},...)`
+    `console.log(#{"#{self.class.name}#method_missing(#{name},...)"})`
     if name[0,3] == 'on_'
       args.insert(0, native_method(name))
       Native.call(@native, 'attachEvent', *args, &block)
