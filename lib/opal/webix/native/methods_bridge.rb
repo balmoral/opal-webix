@@ -7,22 +7,20 @@ module MethodsBridge
   def method_missing(name, *args, &block)
     `console.log(#{"#{self.class.name}#method_missing(#{name},...)"})`
     if name[0,3] == 'on_'
-      args.insert(0, native_method(name))
+      args.insert(0, camel_case(name))
       Native.call(@native, 'attachEvent', *args, &block)
     else
-      Native.call(@native, native_method(name), *args, &block)
+      Native.call(@native, camel_case(name), *args, &block)
     end
   end
 
   # What's the point?
   # def respond_to?(name); true end
 
-  private
-
-  def native_method(name)
-    c = camel_case(name)
-    c[0].downcase + c[1..-1]
+  def camel_case
+    sub(/^[a-z]/){|a|a.upcase}.gsub(/[_\-][a-z]/)
   end
+
 end
 
 end end
