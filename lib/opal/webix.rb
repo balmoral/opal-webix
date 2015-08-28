@@ -1,10 +1,9 @@
-module Opal
-  module Webix
-    module_function
-    class UnsupportedFeature < RuntimeError; end
-    class DataProcessor; end
-  end
-end
+module Opal; module Webix
+  module_function
+  class UnsupportedFeature < RuntimeError; end
+  class DataProcessor; end
+end end
+$webix = Opal::Webix
 
 if RUBY_ENGINE == 'opal'
   require 'opal/webix/setup'

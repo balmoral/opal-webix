@@ -6,25 +6,34 @@ module Opal
     module UI
       module_function
 
-      def create(options)
+      # See Webix API docs for config options
+      # Caller should ensure the doc is ready
+      def <<(options)
         h = options.to_h
-        puts "#{self.class.name}##{__method__}[#{__LINE__}] : calling webix.ui(#{h})"
-        # the caller should ensure the
-        # %x{
-        #   webix.ready(function(){
-        #     webix.ui(#{h.to_n})
-        #   });
-        # }
+        # `console.log(#{"#{self.class.name}##{__method__}[#{__LINE__}] : calling webix.ui(#{h})"})`
         `webix.ui(#{h.to_n})`
         self
       end
+      alias_method :add, :<<
 
+      # Returns an Opal::Webix::Component wrapper
+      # of Webix component with the given id.
+      # Returns nil if no component is found.
+      # Any Webix function relevant to the component
+      # may be called from Ruby. At present any
+      # value returned from these methods will be
+      # native objects, unless the value is a basic
+      # type: boolean, numeric, strings, etc.
+      # As appropriate you can wrap these values
+      # using Opal::Webix::Component.new(native)
+      # or Native.new(native).
       def [](id)
         o = `webix.$$(#{id})`
         is_null = `o == null`
-        puts "#{self.name}##{__method__}[#{__LINE__}](#{id}) o => #{o} is_null=#{is_null}"
-        `o == null` ? nil : Component.new(o)
+        `console.log(#{"#{self.name}##{__method__}[#{__LINE__}](#{id}) o => #{o} is_null=#{is_null}"})`
+        is_null ? nil : Opal::Webix::Component.new(o)
       end
+      alias_method :get, :[]
 
     end
 
@@ -35,4 +44,3 @@ module Opal
   end
 end
 
-$webix = Opal::Webix
