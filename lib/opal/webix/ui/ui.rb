@@ -34,7 +34,7 @@ module Opal; module Webix
     end
     alias_method :get, :[]
 
-    private
+    # private
 
     # Volt::Model's add id's to all embedded models.
     # And Webix doesn't handle id's in 'on' hashes.
