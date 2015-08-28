@@ -43,7 +43,7 @@ module Opal; module Webix
       if arg.is_a?(Hash)
         on = arg[:on]
         if on
-          strip_ids_from_on(on.dup)
+          arg[:on] = strip_ids_from_on(on.dup)
         else
           arg.each_value do |v|
             strip_ids_from_ons(v)
@@ -55,6 +55,7 @@ module Opal; module Webix
         end
       # else do no more
       end
+      arg
     end
 
     # Delete any entries with key :id for given hash
