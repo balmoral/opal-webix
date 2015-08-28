@@ -59,11 +59,18 @@ module Opal; module Webix
     end
 
     # Returns a new hash with the :id entry removed.
+    # Can have nested hashes with :onXYZ keys which
+    # may also have ids, so recurse.
     def strip_ids_from_on(arg)
       result = {}
       arg.each do |k, v|
         unless k == :id
-          strip_ids_from_ons(v)
+          result[k] = v
+          if v.is_a?(Hash)
+            v.each_key do |_k|
+              v[_k] = strip_ids_from_on(v)
+            end
+          end
         end
       end
       result
