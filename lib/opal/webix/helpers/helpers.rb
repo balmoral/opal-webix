@@ -51,22 +51,22 @@ module Opal;  module Webix
 
   # All others are method-bridged through Helper::Component
   # @see Webix API docs for details
-  alias_native :ajax, as: Webix::Opal::Component
-  alias_native :clipbuffer, as: Webix::Opal::Component
-  alias_native :color, as: Webix::Opal::Component
-  alias_native :ajax, as: Webix::Opal::Component
-  alias_native :csv, as: Webix::Opal::Component
-  alias_native :editors, as: Webix::Opal::Component
-  alias_native :env, as: Webix::Opal::Component
-  alias_native :history, as: Webix::Opal::Component
-  alias_native :html, as: Webix::Opal::Component
-  alias_native :i18n, as: Webix::Opal::Component
-  alias_native :locale, as: Webix::Opal::Component
-  alias_native :markup, as: Webix::Opal::Component
-  alias_native :promise, as: Webix::Opal::Component
-  alias_native :rules, as: Webix::Opal::Component
-  alias_native :storage_cookie, as: Webix::Opal::Component
-  alias_native :storage_local, as: Webix::Opal::Component
-  alias_native :storage_session, as: Webix::Opal::Component
+  alias_native :ajax, as: Opal::Webix::Component
+  alias_native :clipbuffer, as: Opal::Webix::Component
+  alias_native :color, as: Opal::Webix::Component
+  alias_native :ajax, as: Opal::Webix::Component
+  alias_native :csv, as: Opal::Webix::Component
+  alias_native :editors, as: Opal::Webix::Component
+  alias_native :env, as: Opal::Webix::Component
+  alias_native :history, as: Opal::Webix::Component
+  alias_native :html, as: Opal::Webix::Component
+  alias_native :i18n, as: Opal::Webix::Component
+  alias_native :locale, as: Opal::Webix::Component
+  alias_native :markup, as: Opal::Webix::Component
+  alias_native :promise, as: Opal::Webix::Component
+  alias_native :rules, as: Opal::Webix::Component
+  alias_native :storage_cookie, as: Opal::Webix::Component
+  alias_native :storage_local, as: Opal::Webix::Component
+  alias_native :storage_session, as: Opal::Webix::Component
 
 end end
