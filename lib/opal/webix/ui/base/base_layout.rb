@@ -8,21 +8,6 @@ module Opal; module Webix
 # use Layout class or descendants.
 # @see http://docs.webix.com/api__refs__ui.baselayout.html
 class BaseLayout < BaseView
-=begin
-  # methods
-  alias_native :add_view, :addView
-  alias_native :reconstruct
-  alias_native :remove_view, :removeView
-  alias_native :resize_children, :resizeChildren
-  alias_native :show_batch, :showBatch
-  alias_native :show_batch, :showBatch
-  # properties
-  alias_native :cols
-  alias_native :responsive
-  alias_native :rows
-  alias_native :visible_batch, :visibleBatch
-=end
-
 end
 
 end end

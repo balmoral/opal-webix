@@ -8,18 +8,6 @@ module Opal; module Webix
 # @see http://docs.webix.com/api__refs__ui.layout.html
 class Layout < BaseLayout
 
-=begin
-  # methods
-  alias_native :index
-  # properties
-  alias_native :isolate
-  alias_native :margin
-  alias_native :padding
-  alias_native :padding_x, :paddingX
-  alias_native :padding_y, :paddingY
-  alias_native :type
-=end
-
 end
 
 end end
