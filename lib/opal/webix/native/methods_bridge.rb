@@ -17,8 +17,10 @@ module MethodsBridge
   # What's the point?
   # def respond_to?(name); true end
 
+  private
+
   def camel_case(s)
-    s.sub(/^[a-z]/){|a|a.upcase}.gsub(/[_\-][a-z]/)
+    s.gsub(/[_\-][a-z]/) { |a| a[1].upcase }
   end
 
 end
