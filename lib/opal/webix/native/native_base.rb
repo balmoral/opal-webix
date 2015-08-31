@@ -1,8 +1,6 @@
 module Opal; module Webix
 
 module NativePatches
-  extend Native::Helpers
-
   # Patch of Native.alias_native to provide us
   # with ability to specify:
   #    alias_native :ruby_name, :js_name, as_array_of: Class
@@ -40,7 +38,6 @@ module NativeBase
   include Native
 
   def self.included(klass)
-    #klass.extend Native::Helpers
     klass.extend NativePatches
   end
 
