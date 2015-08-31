@@ -52,26 +52,21 @@ module Opal;  module Webix
   # All others are method-bridged through Helper::Component
   # @see Webix API docs for details
 
-  alias_native :ajax, :ajax,            as: Opal::Webix::Component
-  # def ajax(data = nil, callback = nil, view = nil)
-  #   `webix.ajax(data, callback, view)`
-  # end
-
-  alias_native :clipbuffer,       as: Opal::Webix::Component
-  alias_native :color,            as: Opal::Webix::Component
-  alias_native :ajax,             as: Opal::Webix::Component
-  alias_native :csv,              as: Opal::Webix::Component
-  alias_native :editors,          as: Opal::Webix::Component
-  alias_native :env,              as: Opal::Webix::Component
-  alias_native :history,          as: Opal::Webix::Component
-  alias_native :html,             as: Opal::Webix::Component
-  alias_native :i18n,             as: Opal::Webix::Component
-  alias_native :locale,           as: Opal::Webix::Component
-  alias_native :markup,           as: Opal::Webix::Component
-  alias_native :promise,          as: Opal::Webix::Component
-  alias_native :rules,            as: Opal::Webix::Component
-  alias_native :storage_cookie,   as: Opal::Webix::Component
-  alias_native :storage_local,    as: Opal::Webix::Component
-  alias_native :storage_session,  as: Opal::Webix::Component
+  alias_native :ajax, :ajax, as: Opal::Webix::Component
+  alias_native :clipbuffer, :clipbuffer, as: Opal::Webix::Component
+  alias_native :color, :color, as: Opal::Webix::Component
+  alias_native :csv, :csv, as: Opal::Webix::Component
+  alias_native :editors, :editors, as: Opal::Webix::Component
+  alias_native :env, :env, as: Opal::Webix::Component
+  alias_native :history, :history, as: Opal::Webix::Component
+  alias_native :html, :html, as: Opal::Webix::Component
+  alias_native :i18n, :i18n, as: Opal::Webix::Component
+  alias_native :locale, :local, as: Opal::Webix::Component
+  alias_native :markup, :markup, as: Opal::Webix::Component
+  alias_native :promise, :promise, as: Opal::Webix::Component
+  alias_native :rules, :rules, as: Opal::Webix::Component
+  alias_native :storage_cookie, :storage_cookie, as: Opal::Webix::Component
+  alias_native :storage_local, :storeage_local, as: Opal::Webix::Component
+  alias_native :storage_session, :storage_session, as: Opal::Webix::Component
 
 end end
