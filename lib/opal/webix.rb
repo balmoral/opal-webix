@@ -1,5 +1,4 @@
 module Opal; module Webix
-  include NativeBase
   module_function
   class UnsupportedFeature < RuntimeError; end
   class DataProcessor; end
