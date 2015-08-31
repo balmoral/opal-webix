@@ -46,8 +46,8 @@ module NativeBase
 
 end
 
-module_function
 include NativeBase
+module_function
 
 end end
 
