@@ -52,10 +52,10 @@ module Opal;  module Webix
   # All others are method-bridged through Helper::Component
   # @see Webix API docs for details
 
-  # alias_native :ajax,             as: Opal::Webix::Component
-  def ajax(data = nil, callback = nil, view = nil)
-    `webix.ajax(data, callback, view)`
-  end
+  alias_native :ajax,             as: Opal::Webix::Component
+  # def ajax(data = nil, callback = nil, view = nil)
+  #   `webix.ajax(data, callback, view)`
+  # end
 
   alias_native :clipbuffer,       as: Opal::Webix::Component
   alias_native :color,            as: Opal::Webix::Component
