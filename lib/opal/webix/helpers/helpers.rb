@@ -53,8 +53,8 @@ module Opal;  module Webix
   # @see Webix API docs for details
 
   # alias_native :ajax,             as: Opal::Webix::Component
-  def ajax(*args, &block)
-    webix_call('ajax', *args, &block)
+  def ajax(*args)
+    webix_call('ajax', *args)
   end
 
   alias_native :clipbuffer,       as: Opal::Webix::Component
