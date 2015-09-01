@@ -8,8 +8,8 @@ module Opal; module Webix
     # See Webix API docs for config options
     # Caller should ensure the doc is ready
     def <<(options)
-      h = options.to_h # strip_ids_from_ons(options.to_h)
-      # `console.log(#{"#{self.class.name}##{__method__}[#{__LINE__}] : calling webix.ui(#{h})"})`
+      h = strip_ids_from_ons(options.to_h)
+      `console.log(#{"#{self.class.name}##{__method__}[#{__LINE__}] : calling webix.ui(#{h.to_n})"})`
       `webix.ui(#{h.to_n})`
       self
     end
