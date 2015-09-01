@@ -9,7 +9,7 @@ module Opal; module Webix
     # Caller should ensure the doc is ready
     def <<(options)
       h = strip_ids_from_ons(options.to_h)
-      `console.log(#{"#{self.class.name}##{__method__}[#{__LINE__}] : calling webix.ui(#{h.to_n})"})`
+      `console.log(#{"#{self.class.name}##{__method__}[#{__LINE__}] : calling webix.ui(#{h})"})`
       `webix.ui(#{h.to_n})`
       self
     end
