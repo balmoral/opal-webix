@@ -18,12 +18,7 @@ module Opal; module Webix
           width: 640,
           cells: [
             {
-              header: 'Test',
-              body:       {
-                id: 'test_button',
-                view: 'button',
-                value: 'Test'
-              }
+              header: 'Test'
             }
           ]
         });
