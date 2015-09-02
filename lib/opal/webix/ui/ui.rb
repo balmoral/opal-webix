@@ -10,19 +10,7 @@ module Opal; module Webix
     def <<(options)
       h = strip_ids_from_ons(options.to_h)
       `console.log(#{"#{self.class.name}##{__method__}[#{__LINE__}] : calling webix.ui(#{h})"})`
-      # `webix.ui(#{h.to_n})`
-      %x{
-        webix.ui({
-          view: 'tabview',
-          height: 400,
-          width: 640,
-          cells: [
-            {
-              header: 'Test'
-            }
-          ]
-        });
-      }
+      `webix.ui(#{h.to_n})`
     end
 
     alias_method :add, :<<
