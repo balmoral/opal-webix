@@ -17,7 +17,14 @@ module Opal; module Webix
           height: 400,
           width: 640,
           cells: [
-
+            {
+              header: 'Label',
+              body:       {
+                id: 'test_label',
+                view: 'button',
+                value: 'Test Label'
+              }
+            }
           ]
         });
       }
